@@ -31,7 +31,7 @@ function Signin() {
 
       localStorage.setItem("token", res.data.content.token);
       localStorage.setItem("id", res.data.content.user.id)
-      dispatch({ type:SET_PROFILE, payload: profile });
+      dispatch({ type:SET_PROFILE, payload: profile.user });
       history.push("/");
       console.log(res.data.content);
     } catch (err) {

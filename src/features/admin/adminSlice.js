@@ -2,7 +2,7 @@ import produce from "immer";
 import { SET_USER } from "./action";
 
 const initialState = {
-  user: null,
+  user: [],
 };
 
 const reducer = (state = initialState, action) => {

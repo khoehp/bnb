@@ -35,7 +35,7 @@ function Header() {
     if (userProfile)
       return (
         <>
-          <a href="#">Hi, {userProfile.user.name}</a>
+          <a href="#">Hi, {userProfile.name}</a>
           <a className="" href="#" onClick={handleLogout}>
             Log out
           </a>

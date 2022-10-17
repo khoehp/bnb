@@ -2,7 +2,7 @@ import { SET_PROFILE } from "./action";
 import produce from "immer";
 
 const initialState = {
-  profile: null,
+  profile:null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,7 +11,6 @@ const reducer = (state = initialState, action) => {
       return produce(state, (draft) => {
         draft.profile = action.payload;
       });
-
     default:
       return state;
   }

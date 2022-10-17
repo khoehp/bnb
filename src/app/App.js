@@ -2,24 +2,26 @@ import Headers from "../common/components/header";
 import Home from "../common/components/home";
 import { lazy, Suspense } from "react";
 import { useEffect } from "react";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Switch } from "react-router-dom";
 import { AuthRoute, PrivateRoute } from "./Guard";
 import { Layout, Spin } from "antd";
 import { useDispatch } from "react-redux";
-import { FetchProfileAction } from "../features/authentication/action";
+import { fetchProfileAction } from "../features/authentication/action";
 const { Sider, Content, Header, Footer } = Layout;
 const Room = lazy(() => import("../features/admin/room"));
 const Address = lazy(() => import("../features/admin/address"));
 const RoomInfo = lazy(() => import("../features/admin/roomInfo"));
-// const User = lazy(() => import("../features/admin/user"));
+const User = lazy(() => import("../features/admin/user"));
 const Signin = lazy(() => import("../features/authentication/signin"));
 const Signup = lazy(() => import("../features/authentication/signup"));
 
 function App() {
   const dispatch = useDispatch();
-
+  // const fetch=async ()=>{
+  //  await dispatch(fetchProfileAction(+localStorage.getItem("id")))
+  // }
   useEffect(() => {
-    dispatch(FetchProfileAction);
+   dispatch(fetchProfileAction)
   },[]);
   return (
     <BrowserRouter>
@@ -46,7 +48,7 @@ function App() {
             >
               <Switch>
                 <PrivateRoute path="/" component={Room} exact />
-                {/* <PrivateRoute path="/user" component={User} /> */}
+                <PrivateRoute path="/user" component={User} />
                 <PrivateRoute path="/address" component={Address} />
                 <PrivateRoute path="/roomInfo" component={RoomInfo} />
                 <AuthRoute path="/signin" component={Signin} redirectPath="/" />

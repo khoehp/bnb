@@ -17,16 +17,16 @@ function Home() {
           label: ` Cyber`,
           key: "logo",
         },
-        // {
-        //   label: "Quản lý người dùng",
-        //   key: "user",
-        //   children: [
-        //     {
-        //       label: <NavLink to="/user">Management User</NavLink>,
-        //       key: "user",
-        //     },
-        //   ],
-        // },
+        {
+          label: "Quản lý người dùng",
+          key: "user",
+          children: [
+            {
+              label: <NavLink to="/user">Management User</NavLink>,
+              key: "user",
+            },
+          ],
+        },
         {
           label: "Quản lý phòng",
           key: "rooms",
